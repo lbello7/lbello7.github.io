@@ -5,31 +5,31 @@ import SmartImage from "../components/SmartImage";
 const angles = [
   {
     id: "hero",
-    src: "./renders/hero.jpg",
+    src: "./renders/hero.png",
     label: "Three-quarter",
     caption: "Walnut, brass, smoked glass.",
   },
   {
     id: "angle",
-    src: "./renders/angle.jpg",
+    src: "./renders/angle.png",
     label: "Lit angle",
     caption: "Internal LEDs through smoked pane.",
   },
   {
     id: "front",
-    src: "./renders/front.jpg",
+    src: "./renders/front.png",
     label: "Front",
     caption: "Dial. OLED. The whole movement.",
   },
   {
     id: "rear",
-    src: "./renders/rear.jpg",
+    src: "./renders/rear.png",
     label: "Rear",
     caption: "USB-C, Ethernet, brass nameplate.",
   },
   {
     id: "detail",
-    src: "./renders/detail.jpg",
+    src: "./renders/detail.png",
     label: "Detail",
     caption: "Brass corner & Hausa diamond inlay.",
   },

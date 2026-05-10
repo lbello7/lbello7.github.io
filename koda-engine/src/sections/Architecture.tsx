@@ -94,8 +94,13 @@ export default function Architecture() {
           lede="A public layer for the world. A private Engine for the work. A Tailscale tunnel between them — and to the phone in your pocket."
         />
 
-        <div className="border border-brass/30 bg-ivory p-4 md:p-8 relative">
-          <div className="aspect-[11/6] w-full">
+        <div className="md:hidden mb-4 font-mono text-[10px] tracking-eyebrow uppercase text-warmgrey flex items-center gap-2">
+          <span className="text-amber">→</span>
+          <span>Scroll horizontally to inspect</span>
+        </div>
+
+        <div className="border border-brass/30 bg-ivory p-4 md:p-8 relative overflow-x-auto">
+          <div className="min-w-[820px] aspect-[11/6]">
             <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-full">
               {/* tier labels */}
               <g

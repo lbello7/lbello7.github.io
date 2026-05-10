@@ -96,10 +96,10 @@ export default function Build() {
 
         {/* Parts table */}
         <div className="border-t border-b border-obsidian/15">
-          <div className="grid grid-cols-12 py-4 font-mono text-[10px] tracking-eyebrow uppercase text-warmgrey">
-            <div className="col-span-2">Group</div>
+          <div className="hidden md:grid grid-cols-12 py-4 font-mono text-[10px] tracking-eyebrow uppercase text-warmgrey">
+            <div className="col-span-3">Group</div>
             <div className="col-span-7">Item</div>
-            <div className="col-span-3 text-right">Cost (£)</div>
+            <div className="col-span-2 text-right">Cost (£)</div>
           </div>
 
           {parts.map((p, i) => (
@@ -109,12 +109,22 @@ export default function Build() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.02 }}
-              className="grid grid-cols-12 py-4 border-t border-brass/15 items-baseline hover:bg-brass/5 transition-colors"
+              className="py-4 border-t border-brass/15 hover:bg-brass/5 transition-colors md:grid md:grid-cols-12 md:items-baseline"
             >
-              <div className="col-span-2 font-mono text-[11px] tracking-eyebrow uppercase text-brass-deep">
-                {p.group}
-              </div>
-              <div className="col-span-7">
+              {/* Mobile layout */}
+              <div className="md:hidden">
+                <div className="flex items-baseline justify-between gap-3 mb-1">
+                  <div className="font-mono text-[10px] tracking-eyebrow uppercase text-brass-deep">
+                    {p.group}
+                  </div>
+                  <div className="font-mono tabular-nums text-[15px]">
+                    {p.cost === 0 ? (
+                      <span className="text-warmgrey">—</span>
+                    ) : (
+                      `£${p.cost.toLocaleString()}`
+                    )}
+                  </div>
+                </div>
                 <div className="text-obsidian">{p.name}</div>
                 {p.note && (
                   <div className="text-warmgrey text-sm italic mt-0.5">
@@ -127,7 +137,25 @@ export default function Build() {
                   </div>
                 )}
               </div>
-              <div className="col-span-3 text-right font-mono tabular-nums">
+
+              {/* Desktop layout */}
+              <div className="hidden md:block md:col-span-3 font-mono text-[11px] tracking-eyebrow uppercase text-brass-deep">
+                {p.group}
+              </div>
+              <div className="hidden md:block md:col-span-7">
+                <div className="text-obsidian">{p.name}</div>
+                {p.note && (
+                  <div className="text-warmgrey text-sm italic mt-0.5">
+                    {p.note}
+                    {p.donor && (
+                      <span className="ml-2 font-mono text-[10px] tracking-eyebrow uppercase text-amber not-italic">
+                        ◇ Donor object
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+              <div className="hidden md:block md:col-span-2 text-right font-mono tabular-nums">
                 {p.cost === 0 ? (
                   <span className="text-warmgrey">—</span>
                 ) : (
@@ -137,15 +165,18 @@ export default function Build() {
             </motion.div>
           ))}
 
-          <div className="grid grid-cols-12 py-6 border-t-2 border-obsidian items-baseline">
-            <div className="col-span-2 font-mono text-[11px] tracking-eyebrow uppercase text-obsidian">
+          <div className="grid grid-cols-12 py-6 border-t-2 border-obsidian items-baseline gap-x-3">
+            <div className="col-span-12 md:col-span-3 font-mono text-[11px] tracking-eyebrow uppercase text-obsidian">
               Total
             </div>
-            <div className="col-span-7 text-warmgrey italic">
+            <div className="hidden md:block col-span-7 text-warmgrey italic text-sm">
               Excluding donor MacBook Pro logic board.
             </div>
-            <div className="col-span-3 text-right font-display text-[28px] tabular-nums">
+            <div className="col-span-12 md:col-span-2 text-right font-display text-[24px] md:text-[28px] tabular-nums">
               £{total.toLocaleString()}
+            </div>
+            <div className="md:hidden col-span-12 text-warmgrey italic text-sm mt-1">
+              Excluding donor MacBook Pro logic board.
             </div>
           </div>
         </div>

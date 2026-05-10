@@ -4,7 +4,7 @@ import Inspector, { type InspectorView, roleColor } from "../components/Inspecto
 const views: InspectorView[] = [
   {
     id: "front",
-    src: "./renders/front.jpg",
+    src: "./renders/front.png",
     label: "Front",
     hotspots: [
       {
@@ -81,7 +81,7 @@ const views: InspectorView[] = [
   },
   {
     id: "rear",
-    src: "./renders/rear.jpg",
+    src: "./renders/rear.png",
     label: "Rear",
     hotspots: [
       {

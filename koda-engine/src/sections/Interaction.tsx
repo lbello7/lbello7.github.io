@@ -73,7 +73,7 @@ export default function Interaction() {
         <div className="grid md:grid-cols-12 gap-12 items-center">
           {/* Front-panel mock */}
           <div className="md:col-span-7">
-            <div className="relative aspect-[5/2] w-full">
+            <div className="relative aspect-[3/2] sm:aspect-[2/1] md:aspect-[5/2] w-full">
               {/* Walnut panel */}
               <div
                 className="absolute inset-0 rounded-sm shadow-2xl"
